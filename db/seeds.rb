@@ -22,3 +22,5 @@ end
 Cocktail.create(name: "Caipirinha")
 Cocktail.create(name: "Mokito")
 Cocktail.create(name: "Black Russian")
+
+Dose.create(description: "6 cl", cocktail_id: 3, ingredient_id: 2)
