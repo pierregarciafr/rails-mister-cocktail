@@ -1,0 +1,8 @@
+<h1>My ingredients</h1>
+
+<ul class="list-inline">
+
+<% @ingredients.each do |ingredient| %>
+  <li><%= ingredient.name.capitalize %></li>
+  <% end %>
+</ul>

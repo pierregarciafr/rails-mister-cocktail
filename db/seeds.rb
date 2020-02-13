@@ -16,7 +16,7 @@ url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 user_serialized = open(url).read
 drinks = JSON.parse(user_serialized)
 drinks["drinks"].each do |drink|
-  puts Ingredient.create!(name: drink["strIngredient1"])
+  puts Ingredient.create(name: drink["strIngredient1"])
 end
 
 Cocktail.create(name: "Caipirinha")

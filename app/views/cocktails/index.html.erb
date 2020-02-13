@@ -1,0 +1,8 @@
+<h1>My cocktails</h1>
+
+<ul class="list-inline">
+
+<% @cocktails.each do |cocktail| %>
+  <li><%= cocktail.name.capitalize %> <%= link_to "Details", cocktail_path(cocktail) %></li>
+  <% end %>
+</ul>
