@@ -3,7 +3,12 @@
 <ul class="list-inline">
 
 <% @cocktails.each do |cocktail| %>
-  <li><%= cocktail.name.capitalize %> <%= link_to "Details", cocktail_path(cocktail) %></li>
+  <li><%= cocktail.name.capitalize %>
+      <%= link_to "Details", cocktail_path(cocktail) %>
+      <%= link_to "Delete #{cocktail.name}",
+            cocktail_path(cocktail),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></li>
   <% end %>
 </ul>
 <%= link_to "Create a new Cocktail", new_cocktail_path %>
