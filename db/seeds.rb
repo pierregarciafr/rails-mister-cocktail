@@ -15,12 +15,13 @@ Ingredient.destroy_all
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 user_serialized = open(url).read
 drinks = JSON.parse(user_serialized)
-drinks["drinks"].each do |drink|
-  puts Ingredient.create(name: drink["strIngredient1"])
-end
 
-Cocktail.create(name: "Caipirinha")
-Cocktail.create(name: "Mokito")
-Cocktail.create(name: "Black Russian")
+array = []
+drinks['drinks'].each { |drink| array << drink['strIngredient1'] }
+array.sort.each { |ingredient| Ingredient.create(name: ingredient) }
 
-Dose.create(description: "6 cl", cocktail_id: 3, ingredient_id: 2)
+Cocktail.create(name: 'Caipirinha')
+Cocktail.create(name: 'Mokito')
+Cocktail.create(name: 'Black Russian')
+
+Dose.create(description: '6 cl', cocktail_id: 3, ingredient_id: 2)

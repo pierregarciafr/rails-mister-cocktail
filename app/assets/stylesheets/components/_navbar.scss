@@ -2,6 +2,13 @@
   justify-content: space-between;
   background: white;
 }
+.navbar-padding {
+  padding: 1em 1em;
+}
+.truc {
+    display: flex;
+    justify-content: space-between;
+}
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;

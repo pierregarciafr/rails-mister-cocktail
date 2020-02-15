@@ -1,0 +1,28 @@
+.pale-button {
+  border: 1px solid $pale;
+  background-color: $pale;
+}
+.dark-button {
+  border: 1px solid $dark;
+  background-color: $dark;
+}
+.copper-button {
+  border: 1px solid $copper;
+  background-color: $copper;
+}
+.button-to-list {
+  font-size: 8px;
+  color: $white;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+ .button-to-list :hover {
+    text-decoration: none;
+}
+.button-banner {
+  font-size: 16px;
+  color: $white;
+  padding: 10px 15px;
+  border-radius: 17px;
+}
+

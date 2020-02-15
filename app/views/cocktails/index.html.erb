@@ -1,14 +1,30 @@
-<h1>My cocktails</h1>
+<%= render './shared/navbar' %>
 
-<ul class="list-inline">
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">My cocktails</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <div class="button-banner copper-button">
+      <%= link_to "Create a new Cocktail", new_cocktail_path %>
+    </div>
+  </div>
+</div>
 
-<% @cocktails.each do |cocktail| %>
-  <li><%= cocktail.name.capitalize %>
-      <%= link_to "Details", cocktail_path(cocktail) %>
-      <%= link_to "Delete #{cocktail.name}",
-            cocktail_path(cocktail),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %></li>
-  <% end %>
-</ul>
-<%= link_to "Create a new Cocktail", new_cocktail_path %>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://res.cloudinary.com/droxurcle/image/upload/c_thumb,w_200,g_face/v1581700797/dmitry-dreyer-7hHRTw_-1SY-unsplash_y8nuo1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= cocktail.name.capitalize %></h5>
+          <p class="card-text"><%= cocktail.description %>.</p>
+          <%= link_to "Details", cocktail_path(cocktail), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+

@@ -1,20 +1,49 @@
-<h1><%= @cocktail.name %></h1>
-<ul class="list-group">
-  <% @cocktail.doses.each do |dose| %>
-  <li class="list-group-item">
-    <%= dose.ingredient.name %>
-    <%= dose.description %>
-    <%= link_to "Delete #{dose.ingredient.name}",
-            dose_path(dose),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-  </li>
-  <% end %>
-</ul>
-<%= link_to "Add a new dose",
-  new_cocktail_dose_path(@cocktail) %>
-<%= link_to "Back to the list", cocktails_path %>
+  <%= render 'shared/navbar'%>
+
+
+<div class="jumbotron card card-image" style="background-image: url(https://res.cloudinary.com/droxurcle/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1581700797/jenny-pace-yBz_o25M2zY-unsplash_gu8cpl.jpg);">
+  <div class="text-center py-2 px-4">
+    <div class = container>
+      <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong><%= @cocktail.name %></strong>
+      </h2>
+      <p class="mx-5 mb-5">Lorem ipsum</p>
+      <a class="button-banner pale-button">
+        <%= link_to "Delete #{@cocktail.name}",
+      cocktail_path(@cocktail),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Description</h3>
+      <p>
+        @cocktail.description
+      </p>
 
 
 
+    </div>
+    <div class="col-md-6">
+      <ul class="list-group">
+        <% @cocktail.doses.each do |dose| %>
+        <li class="list-group-item">
+          <%= dose.ingredient.name %>
+          <%= dose.description %>
+          <%= link_to "Delete #{dose.ingredient.name}",
+          dose_path(dose),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+        </li>
+        <% end %>
+      </ul>
+      <%= link_to "Add an ingredient",
+      new_cocktail_dose_path(@cocktail) %>
 
+    </div>
+  </div>
+</div>
