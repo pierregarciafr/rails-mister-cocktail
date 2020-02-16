@@ -1,11 +1,13 @@
 <%= render './shared/navbar' %>
 
 <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">My cocktails</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-    <div class="button-banner copper-button">
-      <%= link_to "Create a new Cocktail", new_cocktail_path %>
+  <div class="back">
+    <div class="container">
+      <h1 class="display-4">My cocktails</h1>
+      <p class="lead">Partagez vos meilleures recettes de cocktail !</p>
+      <div>
+        <%= link_to "Create a new Cocktail", new_cocktail_path, class: "button-banner copper-button" %>
+      </div>
     </div>
   </div>
 </div>
@@ -15,9 +17,10 @@
     <% @cocktails.each do |cocktail| %>
     <div class="col-md-4">
       <div class="card" style="width: 18rem;">
-        <%= cl_image_tag("paj3dtx2pygm09sl7umb",
-      width: 200, crop: :fill, class: "card-img-top") %>
-        <img src="https://res.cloudinary.com/droxurcle/image/upload/c_thumb,w_200,g_face/v1581700797/dmitry-dreyer-7hHRTw_-1SY-unsplash_y8nuo1.jpg" class="card-img-top" alt="...">
+        <% if cocktail.photo.attached? %>
+          <%= cl_image_tag(cocktail.photo.key,
+          width: 200, crop: :fill, class: "card-img-top") %>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= cocktail.name.capitalize %></h5>
           <p class="card-text"><%= cocktail.description %>.</p>
